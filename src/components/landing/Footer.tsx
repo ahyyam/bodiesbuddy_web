@@ -1,4 +1,4 @@
-import { HeartHandshake, Twitter, Github, Linkedin } from 'lucide-react';
+import { HeartHandshake, Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -14,17 +14,21 @@ export function Footer() {
             <p>Made with ❤️ for a healthier you.</p>
           </div>
           <div className="flex space-x-4">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Twitter className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook className="h-6 w-6" />
+              <span className="sr-only">Facebook</span>
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              <Linkedin className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
+            <a 
+              href="#" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram className="h-6 w-6" />
+              <span className="sr-only">Instagram</span>
             </a>
           </div>
         </div>
