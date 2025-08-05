@@ -5,7 +5,6 @@ import { Screenshots } from "@/components/landing/Screenshots";
 import { Pricing } from "@/components/landing/Pricing";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Footer } from "@/components/landing/Footer";
-import { LiveChatWidget } from "@/components/landing/LiveChatWidget";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
         <Testimonials />
       </main>
       <Footer />
-      <LiveChatWidget />
     </div>
   );
 }
