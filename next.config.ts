@@ -23,9 +23,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  experimental: {
-    optimizeCss: true,
-  },
   headers: async () => {
     return [
       {
