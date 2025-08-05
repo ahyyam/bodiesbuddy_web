@@ -2,7 +2,6 @@ import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { Screenshots } from "@/components/landing/Screenshots";
-import { Calculator } from "@/components/landing/Calculator";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Footer } from "@/components/landing/Footer";
 import { LiveChatWidget } from "@/components/landing/LiveChatWidget";
@@ -15,7 +14,6 @@ export default function Home() {
         <Hero />
         <Features />
         <Screenshots />
-        <Calculator />
         <Testimonials />
       </main>
       <Footer />

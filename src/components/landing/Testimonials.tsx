@@ -1,11 +1,13 @@
 import Image from "next/image";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export function Testimonials() {
   return (
     <section id="testimonials" className="container mx-auto py-16 sm:py-24 px-4">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tight">Loved by Fitness Enthusiasts</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline tracking-tight">
+          Loved by Fitness Enthusiasts
+        </h2>
         <p className="mt-4 text-lg text-muted-foreground">
           Don't just take our word for it. Here's what our users are saying.
         </p>
@@ -17,11 +19,11 @@ export function Testimonials() {
             <div className="flex items-center space-x-4">
               <Image
                 src="https://placehold.co/80x80.png"
-                alt="Testimonial user"
+                alt="Sarah L. - Busy Mom & Fitness Newbie"
                 width={80}
                 height={80}
                 className="rounded-full"
-                data-ai-hint="person smiling"
+                loading="lazy"
               />
               <div>
                 <p className="font-bold font-headline text-lg">Sarah L.</p>

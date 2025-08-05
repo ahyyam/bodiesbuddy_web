@@ -9,11 +9,31 @@ import {
 } from "@/components/ui/carousel";
 
 const screenshots = [
-  { src: "https://placehold.co/300x600.png", alt: "Dashboard Screen", hint: "app dashboard" },
-  { src: "https://placehold.co/300x600.png", alt: "Workout Plan Screen", hint: "workout plan" },
-  { src: "https://placehold.co/300x600.png", alt: "Progress Tracking Screen", hint: "progress chart" },
-  { src: "https://placehold.co/300x600.png", alt: "Meal Log Screen", hint: "meal log" },
-  { src: "https://placehold.co/300x600.png", alt: "Achievements Screen", hint: "gamification achievement" },
+  { 
+    src: "https://placehold.co/300x600.png", 
+    alt: "BodiesBuddy dashboard showing fitness metrics and progress overview",
+    hint: "app dashboard" 
+  },
+  { 
+    src: "https://placehold.co/300x600.png", 
+    alt: "Personalized workout plan interface with exercise recommendations",
+    hint: "workout plan" 
+  },
+  { 
+    src: "https://placehold.co/300x600.png", 
+    alt: "Progress tracking charts showing weight and measurement trends",
+    hint: "progress chart" 
+  },
+  { 
+    src: "https://placehold.co/300x600.png", 
+    alt: "Nutrition tracking and meal logging interface",
+    hint: "meal log" 
+  },
+  { 
+    src: "https://placehold.co/300x600.png", 
+    alt: "Achievement system showing fitness milestones and rewards",
+    hint: "gamification achievement" 
+  },
 ];
 
 export function Screenshots() {
@@ -47,7 +67,7 @@ export function Screenshots() {
                         width={300}
                         height={600}
                         className="w-full h-full object-cover"
-                        data-ai-hint={screenshot.hint}
+                        loading="lazy"
                       />
                     </CardContent>
                   </Card>
@@ -55,8 +75,8 @@ export function Screenshots() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
+          <CarouselPrevious className="hidden sm:flex" aria-label="Previous screenshot" />
+          <CarouselNext className="hidden sm:flex" aria-label="Next screenshot" />
         </Carousel>
       </div>
     </section>

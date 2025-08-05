@@ -18,7 +18,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Button size="lg" className="font-bold text-base" asChild>
-              <a href="#">
+              <a href="#" aria-label="Download BodiesBuddy on App Store">
                 <AppleStoreIcon className="mr-3 size-6" />
                 <span>
                   <span className="block text-xs font-normal text-left">Download on the</span>
@@ -27,7 +27,7 @@ export function Hero() {
               </a>
             </Button>
             <Button size="lg" variant="secondary" className="font-bold text-base" asChild>
-              <a href="#">
+              <a href="#" aria-label="Download BodiesBuddy on Google Play">
                 <GooglePlayIcon className="mr-3 size-6" />
                 <span>
                   <span className="block text-xs font-normal text-left">GET IT ON</span>
@@ -48,11 +48,12 @@ export function Hero() {
                 <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-background">
                     <Image
                         src="https://placehold.co/300x600.png"
-                        alt="App Screenshot"
+                        alt="BodiesBuddy app screenshot showing fitness tracking interface"
                         width={272}
                         height={572}
                         className="w-[272px] h-[572px] object-cover"
-                        data-ai-hint="app screenshot"
+                        priority
+                        loading="eager"
                     />
                 </div>
             </div>
