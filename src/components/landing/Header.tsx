@@ -1,16 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { HeartHandshake, Download, MessageCircle, X } from 'lucide-react';
+import { HeartHandshake, Download, Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,121 +18,118 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Contact form submitted');
-    setIsContactOpen(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const openContact = () => {
-    console.log('Opening contact form');
-    setIsContactOpen(true);
-  };
-
-  const closeContact = () => {
-    console.log('Closing contact form');
-    setIsContactOpen(false);
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    <>
-      <header className={`sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-200 ${
-        isScrolled ? 'border-b' : ''
-      }`}>
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <a href="#hero" className="flex items-center space-x-2">
-            <HeartHandshake className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold font-headline">BodiesBuddy</span>
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg' 
+        : 'bg-background/80 backdrop-blur-sm'
+    }`}>
+      <div className="container mx-auto flex h-16 sm:h-20 items-center justify-between px-4 sm:px-6">
+        <a 
+          href="#hero" 
+          className="flex items-center space-x-2 group" 
+          onClick={closeMobileMenu}
+        >
+          <HeartHandshake className="h-6 w-6 sm:h-8 sm:w-8 text-primary transition-transform duration-300 group-hover:scale-110" />
+          <span className="text-xl sm:text-2xl font-bold font-headline transition-colors duration-300 group-hover:text-primary">
+            BodiesBuddy
+          </span>
+        </a>
+        
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a 
+            href="#features" 
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group"
+          >
+            Features
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
-          
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <a 
+            href="#contact" 
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group"
+          >
+            Contact
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a 
+            href="#testimonials" 
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group"
+          >
+            Testimonials
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </nav>
+
+        {/* Desktop Download Button */}
+        <Button 
+          asChild 
+          className="hidden sm:flex shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        >
+          <a href="#hero" aria-label="Download BodiesBuddy app">
+            <Download className="mr-2 h-4 w-4" />
+            Download App
+          </a>
+        </Button>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden hover:bg-primary/10 transition-all duration-300"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="h-5 w-5 transition-transform duration-300 rotate-90" />
+          ) : (
+            <Menu className="h-5 w-5 transition-transform duration-300" />
+          )}
+        </Button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur-md animate-in slide-in-from-top-2 duration-300">
+          <nav className="container mx-auto px-4 sm:px-6 py-6 space-y-4">
+            <a 
+              href="#features" 
+              className="block text-base font-medium text-muted-foreground hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10"
+              onClick={closeMobileMenu}
+            >
               Features
             </a>
-            <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-              Pricing
+            <a 
+              href="#contact" 
+              className="block text-base font-medium text-muted-foreground hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10"
+              onClick={closeMobileMenu}
+            >
+              Contact
             </a>
-            <a href="#testimonials" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+            <a 
+              href="#testimonials" 
+              className="block text-base font-medium text-muted-foreground hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg hover:bg-primary/10"
+              onClick={closeMobileMenu}
+            >
               Testimonials
             </a>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={openContact}
-              className="text-sm font-medium"
-            >
-              Contact Us
+            <Button asChild className="w-full mt-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <a href="#hero" onClick={closeMobileMenu}>
+                <Download className="mr-2 h-4 w-4" />
+                Download App
+              </a>
             </Button>
           </nav>
-
-          <Button asChild>
-            <a href="#hero" aria-label="Download BodiesBuddy app">
-              <Download className="mr-2 h-4 w-4" />
-              Download App
-            </a>
-          </Button>
-        </div>
-      </header>
-
-      {/* Contact Form Popup */}
-      {isContactOpen && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              closeContact();
-            }
-          }}
-        >
-          <Card className="w-full max-w-md mx-4 relative">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-              <div>
-                <CardTitle>Contact Us</CardTitle>
-                <CardDescription>
-                  Get in touch with our team
-                </CardDescription>
-              </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={closeContact}
-                className="h-8 w-8 hover:bg-muted"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Your name" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your.email@example.com" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="How can we help?" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us more about your inquiry..."
-                    rows={4}
-                    required 
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
         </div>
       )}
-    </>
+    </header>
   );
 }

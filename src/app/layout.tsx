@@ -6,22 +6,27 @@ export const metadata: Metadata = {
   title: 'BodiesBuddy - AI-Powered Fitness Tracking & Personal Training App',
   description: 'Transform your fitness journey with BodiesBuddy. AI-powered workout plans, progress tracking, nutrition guidance, and personalized coaching. Download now for iOS and Android.',
   keywords: 'fitness app, workout tracker, AI personal trainer, body transformation, nutrition tracking, fitness goals, health app, exercise planner',
-  authors: [{ name: 'BodiesBuddy Team' }],
-  creator: 'BodiesBuddy Inc.',
+  authors: [{ name: 'BodiesBuddy Team' }, { name: 'Codenies Solutions', url: 'https://codenies-new.vercel.app/' }],
+  creator: 'Codenies Solutions',
   publisher: 'BodiesBuddy Inc.',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://bodiesbuddy.com'),
+  metadataBase: new URL('https://bodiesbuddy-web.vercel.app'),
   alternates: {
     canonical: '/',
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'BodiesBuddy - AI-Powered Fitness Tracking & Personal Training App',
     description: 'Transform your fitness journey with BodiesBuddy. AI-powered workout plans, progress tracking, nutrition guidance, and personalized coaching.',
-    url: 'https://bodiesbuddy.com',
+    url: 'https://bodiesbuddy-web.vercel.app',
     siteName: 'BodiesBuddy',
     images: [
       {
